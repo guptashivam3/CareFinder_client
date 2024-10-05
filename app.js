@@ -95,7 +95,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Function to display the XML data in a readable format
+/// Function to display the XML data in a readable format and redirect
 function displayData(xmlData) {
     console.log("Parsing XML Data:", xmlData);  // Log raw XML data
 
@@ -111,8 +111,8 @@ function displayData(xmlData) {
         return;
     }
 
-    // Create output for displaying the data
-    let output = '<h2>Hospitals:</h2><ul>';  // Start an unordered list
+    // Prepare an array to hold hospital information
+    const hospitalList = [];
 
     // Loop through each hospital item and extract data
     for (let i = 0; i < hospitals.length; i++) {
@@ -127,22 +127,12 @@ function displayData(xmlData) {
         const ownership = hospital.getElementsByTagName('hospital_ownership')[0]?.textContent || "Unknown ownership";
         const emergency = hospital.getElementsByTagName('emergency_services')[0]?.textContent === "true" ? "Yes" : "No";
 
-        // Add hospital details to output
-        output += `<li>`;
-        output += `<strong>${name}</strong><br>`;
-        output += `<p><strong>Address:</strong> ${address}, ${city}, ${state} ${zip}</p>`;
-        output += `<p><strong>Phone:</strong> ${phone}</p>`;
-        output += `<p><strong>Type:</strong> ${type}</p>`;
-        output += `<p><strong>Ownership:</strong> ${ownership}</p>`;
-        output += `<p><strong>Emergency Services:</strong> ${emergency}</p>`;
-        output += `</li>`;
+        // Push hospital details into the hospitalList array
+        hospitalList.push({ name, address, city, state, zip, phone, type, ownership, emergency });
     }
 
-    output += '</ul>';  // End the unordered list
-
-    console.log("Displaying data:", output);  // Log formatted output
-    document.getElementById('output').innerHTML = output;  // Display the output in the HTML
-
-    // Display the raw XML data
-    document.getElementById('xmlDisplay').textContent = xmlData;  // Show raw XML data
+    // Redirect to results.html with hospital data
+    const xmlDataString = encodeURIComponent(xmlData);
+    const hospitalListString = encodeURIComponent(JSON.stringify(hospitalList));
+    window.location.href = `results.html?data=${xmlDataString}&hospitals=${hospitalListString}`;
 }
