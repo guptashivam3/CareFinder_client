@@ -10,12 +10,12 @@
 <body>
     <div class="container">
         <header class="text-center">
-            <h1 class="mt-4">CareFinder - Hospital Lookup</h1>
+            <h1 class="wordart mt-4">CareFinder - Hospital Lookup</h1>
         </header>
         
         <!-- Dropdown and Input Section -->
         <div class="form-group">
-            <label for="searchType">Search by:</label>
+            <label for="searchType" class="font-weight-bold">Search by:</label>
             <select id="searchType" class="form-control" onchange="updateInputPlaceholder()">
                 <option value="id">ID</option>
                 <option value="state">State</option>
@@ -31,11 +31,10 @@
 
         <div id="output" class="mt-4"></div>
         
-        <h2 class="mt-4">Raw XML Data:</h2>
-        <pre id="xmlDisplay" class="bg-light p-3 border rounded"></pre>
+        <h2 class="font-weight-bold">Raw XML Data:</h2>
+        <pre id="xmlDisplay" class="bg-light p-3 border rounded xml-container"></pre>
     </div>
 
-    <!-- Make sure this is at the end of the body -->
     <script src="app.js"></script>
 </body>
 </html>
