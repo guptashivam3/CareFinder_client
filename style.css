@@ -1,0 +1,54 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f4f4, #e9ecef);  /* Gradient background */
+    transition: background-color 0.5s ease;  /* Smooth transition for background color */
+}
+
+/* Header styling */
+header {
+    background-color: #00dbe6;  /* Initial header color */
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;  /* Smooth transition for header background */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;  /* Increase header font size */
+}
+
+/* Change background color on scroll */
+.scroll-bg {
+    background: linear-gradient(135deg, #00e60c, #a1ff1e);  /* Change to another gradient color */
+}
+
+/* Additional colors for scroll */
+.scroll-bg-2 {
+    background: linear-gradient(135deg, #ff1e8b, #ff0073);
+}
+
+.scroll-bg-3 {
+    background: linear-gradient(135deg, #ffa600, #fae987);
+}
+
+/* Container for the search form */
+.container {
+    max-width: 800px;
+}
+
+/* Styled output for hospitals */
+#output {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styled XML display */
+#xmlDisplay {
+    white-space: pre-wrap;  /* Preserve whitespace */
+    overflow-x: auto;  /* Allow horizontal scrolling */
+}
